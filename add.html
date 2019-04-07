@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Anagram</title>
+</head>
+<style>
+
+  body{background-image: linear-gradient(to bottom right, red, yellow);}
+
+
+</style>
+<body>
+    {% if user %}
+		<a href="/"><input type="button" value="Back" name="Back"></a>
+		{% if myuser %}
+			<h4>| Total Anagrams: {{ myuser.userAnagramCount }} | Total Words: {{ myuser.userWordCount }} |</h4>
+		{% endif %}
+	
+		<h3>Add new Anagram</h3>
+		<form action="/add" method="post">
+			<input type="text" required name="add_word" value="" pattern="[a-zA-Z]+.{2,}">
+			<input type="submit" name="button" value="Add">
+		</form>
+	{% endif %}
+
+    <div>
+        {% if message %}
+            <h4 style="color:green">{{ message }}</h4>
+        {% endif %}
+    </div>
+</body>
+</html>

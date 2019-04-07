@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Anagram</title>
+</head>
+<style>
+    body {background-color: white;}
+div{
+font-size: 18px
+}
+h3   {font-size: 18px; font-family: Times New Roman; text-decoration: underline;}
+</style>
+<body>
+    {% if user %}
+	<a href="/"><input type="button" value="Back" name="Back"></a>
+		{% if myuser %}
+			<h4>| Total Anagrams: {{ myuser.userAnagramCount }} | Total Words: {{ myuser.userWordCount }} |</h4>
+		{% endif %}
+	
+	<h3 style="color:green">Searched anagrams</h3>
+    <div style="color:green">
+    {% if anagrams %}
+        {% for i in anagrams %}
+            <p>{{ i }}</p>
+        {% endfor %}
+    {% endif %}
+    </div>
+	{% endif %}
+
+    <div style="color: red">
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

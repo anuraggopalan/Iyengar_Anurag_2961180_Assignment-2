@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Upload the list</title>
+  </head>
+  <body>
+	<a href="/"><input type="button" value="Back" name="Back"></a>
+		{% if myuser %}
+			<h4>| Total Anagrams: {{ myuser.userAnagramCount }} | Total Words: {{ myuser.userWordCount }} |</h4>
+		{% endif %}
+	
+	<h3 style="color:green">Upload Anagram File</h3>
+	
+    <form action="/upload" method="post" enctype="multipart/form-data"> Select file to upload:
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="Upload" name="button">
+    </form>
+  </body>
+</html>

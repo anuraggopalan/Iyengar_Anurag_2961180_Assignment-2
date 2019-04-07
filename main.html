@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>User login/logout</title>
+    </head>
+    <style>
+        body{
+  background-image: linear-gradient(navy, white);
+  color: black;
+}
+        a {font-size: 22px;}
+        h1{color: #E0E8F5;
+  text-shadow: 2px 2px 4px #000000;
+  text-align:center;
+  }
+  h4{text-align: right; background-color: grey;}
+  a{color: black
+  }
+    </style>
+            <body>
+                {% if user %}
+                <h1>Hello {{ user.email() }} <br><br> Welcome to Anagram Engine</h1>
+				
+				{% if myuser %}
+					<h4>| Total Anagrams: {{ myuser.userAnagramCount }} | Total Words: {{ myuser.userWordCount }} |</h4>
+				{% endif %}
+				
+				<a href="/add">Add New</a>
+                <form method="post" action="/search">
+					<p ><input type = "text" name="input_text" required>&nbsp;<input type="submit" name="button" value="Search"></p>
+                </form>
+				<a href="/upload">Click here to upload list</a>
+			
+                {% else %}
+                <p>Hello guest welcome to the application</p>
+                {% endif %}
+                <p>you can {{ url_string }} <a href='{{ url }}'>here</a></p>
+                
+            </body>
+</html>
